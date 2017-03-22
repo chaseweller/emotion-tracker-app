@@ -10,10 +10,6 @@ const style = {
     margin: 12,
 };
 
-
-
-
-
 class RatingPage extends Component {
 
     state = {
@@ -29,23 +25,30 @@ class RatingPage extends Component {
         this.setState({secondSlider: value});
     };
 
+    chosen = () => {
+    console.log(this.state.secondSlider)
+        {this.props.handler()}
+};
+
 
     render () {
         return (
             <article>
-                    <h2>On a scale of 1- 10</h2>
-                    <Slider min={1}
+                    <h2>On a scale of 1 - 10</h2>
+                    <Slider onClick={this.chosen }
+                            min={1}
                             max={10}
                             step={1}
-                            defaultValue={5}
-                            value={this.state.handleSecondSlider}
+                            defaultValue={1}
+                            value={this.state.handleFirstSlider}
                             onChange={this.handleSecondSlider}
                     />
                 <p>
                     <span>{'You have selected: '}</span>
                     <span>{this.state.secondSlider}</span>
                 </p>
-                <Link to="/"><RaisedButton label="Home Page" style={style}></RaisedButton></Link>
+                {/*<Link to="/"><RaisedButton label="Home Page" style={style}></RaisedButton></Link>*/}
+                {/*<Link to="message"><RaisedButton label="Continue" style={style}></RaisedButton></Link>*/}
 
             </article>
 

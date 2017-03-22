@@ -14,11 +14,13 @@ class MessagePage extends Component {
     render () {
         return (
             <article>
-                <h1>Message Page</h1>
+                <h2>Message Page</h2>
                 <TextField hintText="Gratitude 1" /><br />
                 <TextField hintText="Gratitude 2" /><br />
                 <TextField hintText="Gratitude 3" /><br />
-                <Link to="/"><RaisedButton label="Home Page" style={style}></RaisedButton></Link>
+                {/*<Link to="about"><RaisedButton label="Continue" style={style}></RaisedButton></Link><br />*/}
+                {/*<Link to="/"><RaisedButton label="Home Page" style={style}></RaisedButton></Link>*/}
+
             </article>
         );
     }
