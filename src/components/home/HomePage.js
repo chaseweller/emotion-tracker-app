@@ -1,63 +1,81 @@
-import React, { Component, PropTypes } from 'react';
+import React, { Component } from 'react';
 import './HomePage.css';
-// import { Link } from 'react-router';
+import { Link } from 'react-router';
 import RaisedButton from 'material-ui/RaisedButton';
-import EmojiPage from '../emoji/EmojiPage';
+import EmojiPage, { Emotions } from '../emoji/EmojiPage';
 import RatingPage from '../rating/RatingPage';
 import MessagePage from '../message/MessagePage';
+import { firebaseConnect, isLoaded, isEmpty, dataToJS } from 'react-redux-firebase';
+import Save from '../save/Save';
 
 const style = {
-    margin: 12,
+  margin: 12,
 };
+
 
 class HomePage extends Component {
 
-    constructor(props) {
-        super(props);
-        this.handleEmojiClick = this.handleEmojiClick.bind(this);
-        this.handleRatingClick = this.handleRatingClick.bind(this);
-        this.state = {isClicked: false, isSelected: false};
+  constructor(props) {
+    super(props);
+    this.handleEmojiClick = this.handleEmojiClick.bind(this);
+    this.handleRatingClick = this.handleRatingClick.bind(this);
+    this.handleMessagesEntered = this.handleMessagesEntered.bind(this);
+    this.state = { isClicked: false, isSelected: false, isEntered: false, data: {} };
 
-    }
+  }
 
-    handleEmojiClick() {
-        this.setState({isClicked: true});
-    }
+  handleEmojiClick(emotion) {
+    const data = this.state.data;
+    data.emotion = emotion;
+    this.setState({ isClicked: true, data: data });
+  }
 
-    handleRatingClick() {
-        this.setState({isSelected: true})
-    }
+  handleRatingClick(rating) {
+    const data = this.state.data;
+    data.rating = rating;
+    this.setState({ isSelected: true, data: data })
+  }
 
-    render () {
-        const isClicked = this.state.isClicked;
-        const isSelected = this.state.isSelected;
+  handleMessagesEntered(messages) {
+    const data = this.state.data;
+    data.messages = messages;
+    this.setState({ isEntered: true, data: data })
+  }
 
-        // let emotionSelected = '';
-        //     if (isClicked) {
-        //         emotionSelected = <RatingPage handler = {this.handleRatingClick}/>; //appear
-        // }
+  render() {
+    const isClicked = this.state.isClicked;
+    const isSelected = this.state.isSelected;
+    const isEntered = this.state.isEntered;
+    console.log(this.state.data);
 
-        // let ratingSelected = '';
-        //     if (isSelected) {
-        //         ratingSelected = <MessagePage />;
-        // }
+    // let emotionSelected = '';
+    //     if (isClicked) {
+    //         emotionSelected = <RatingPage handler = {this.handleRatingClick}/>; //appear
+    // }
 
+    // let ratingSelected = '';
+    //     if (isSelected) {
+    //         ratingSelected = <MessagePage />;
+    // }
 
+    return (
+      <div>
+        <h1>Welcome!</h1>
+        <article>
+          <Link to="about"><RaisedButton label="About" style={style}></RaisedButton></Link><br/>
 
-        return (
-            <div>
-                <h1>Welcome!</h1>
-                <article>
-                    <EmojiPage handler={this.handleEmojiClick} />
-                    {isClicked && <RatingPage handler={this.handleRatingClick}/>}
-                    {isSelected && <MessagePage />}
-                </article>
-                <RaisedButton label="Save" style={style}></RaisedButton>
-                <RaisedButton label="Share" style={style}></RaisedButton><br/>
-                Facebook icon <br/>instagram icon
-            </div>
-        )
-    }
+          <EmojiPage handler={this.handleEmojiClick}/>
+          {isClicked && <RatingPage handler={this.handleRatingClick}/>}
+          {isSelected && <MessagePage handler={this.handleMessagesEntered}/>}
+        </article>
+        <article>
+          {isEntered && <Save data={this.state.data} /> }
+
+        </article>
+
+      </div>
+    )
+  }
 }
 
 export default HomePage;
@@ -68,7 +86,6 @@ export default HomePage;
 // {/*<Link to="rating"><RaisedButton label="Rating Page" style={style}></RaisedButton></Link>*/}
 // {/*<Link to="message"><RaisedButton label="Message Page" style={style}></RaisedButton></Link>*/}
 // {/*<Link to="about"><RaisedButton label="About Page" style={style}></RaisedButton></Link>*/}
-
 
 
 // Vertical line stepper for emoji, rating, message timeline

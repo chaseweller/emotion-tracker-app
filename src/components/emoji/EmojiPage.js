@@ -1,82 +1,79 @@
-import React, {Component} from 'react';
-import {Link} from 'react-router';
-import RaisedButton from 'material-ui/RaisedButton';
+import React, { Component, PropTypes } from 'react';
 import './EmojiPage.css';
 import { connect } from 'react-redux';
-import { createEntry } from '../../actions/newEntry';
+import { entrySaved } from '../../actions/newEntry';
 
-
+// import {Link} from 'react-router';
+// import RaisedButton from 'material-ui/RaisedButton';
 // import { browserHistory } from 'react-router';
-// import { createEntry } from '../../actions/EmotionSelected';
+// import { entrySaved } from '../../actions/EmotionSelected';
 
-
-const style = {
-    margin: 12,
-};
-
-const selected = (id) => {
-    console.log(id)
-
-};
-
-
-
-
+// const style = {
+//     margin: 12,
+// };
 class EmojiPage extends Component {
 
+  selected = (id) => {
+    console.log(id);
+    this.props.handler(id)
+  };
 
 
-    render() {
-
-        const happy =
-            <img src="images/Happy.png" onClick={() => {selected('happy'); this.props.handler() }} />;
-        const neutral =
-            <img src="images/Neutral.png" onClick={() => {selected('neutral'); this.props.handler()}} />;
-        const sad =
-            <img src="images/Sad.png" onClick={() => {selected('sad'); this.props.handler()}} />;
-        const angry =
-            <img src='images/Angry.png' onClick={() => {selected('angry'); this.props.handler()}} />;
-        const sick =
-            <img src='images/Sick.png' onClick={() => {selected('sick'); this.props.handler()}} />;
-        const poop =
-            <img src='images/Poop.png' onClick={() => {selected('poop'); this.props.handler()}} />;
+  render() {
 
 
-        return (
-            <article>
-                <h2>Emoji Page</h2>
-                { happy }
-                { neutral }
-                { sad }
-                { angry }
-                { sick }
-                { poop }
+    console.log(this.props);
 
-                {/*<br />*/}
-                {/*<Link to="/"><RaisedButton label="Home Page" style={style}></RaisedButton></Link>*/}
-                {/*<Link to="rating"><RaisedButton label="Continue" style={style}></RaisedButton></Link>*/}
-                <div>
+    const happy =
+      <img src="images/Happy.png" alt="Smiley face" onClick={ id => this.selected('happy')}/>;
+    const neutral =
+      <img src="images/Neutral.png" alt="Neutral face" onClick={ id => this.selected('neutral')}/>;
+    const sad =
+      <img src="images/Sad.png" alt="Sad face" onClick={ id => this.selected('sad')}/>;
+    const angry =
+      <img src='images/Angry.png' alt="Angry face" onClick={ id => this.selected('angry')}/>;
+    const sick =
+      <img src='images/Sick.png' alt="Sick face" onClick={ id => this.selected('sick')}/>;
+    const poop =
+      <img src='images/Poop.png' alt="Poop" onClick={ id => this.selected('poop')}/>;
 
-                </div>
-            </article>
 
-        );
-    }
+    return (
+      <article>
+        <h2>How was today?</h2>
+        { happy }
+        { neutral }
+        { sad }
+        { angry }
+        { sick }
+        { poop }
+
+        {/*<br />*/}
+        {/*<Link to="/"><RaisedButton label="Home Page" style={style}></RaisedButton></Link>*/}
+        {/*<Link to="rating"><RaisedButton label="Continue" style={style}></RaisedButton></Link>*/}
+        <div>
+
+        </div>
+      </article>
+
+    );
+  }
 }
 
 const mapStateToProps = state => {
 
-    return {
-
-    }
+  return {}
 };
 
 const mapDispatchToProps = (dispatch) => {
-    return {
-        newEntry: (entry) => {
-            return dispatch(createEntry(entry));
-        }
+  return {
+    newEntry: (entry) => {
+      return dispatch(entrySaved(entry));
     }
+  }
 };
 
-export default connect(mapStateToProps, mapDispatchToProps)(EmojiPage);
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps,
+)(EmojiPage);

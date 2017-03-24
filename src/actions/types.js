@@ -1,6 +1,4 @@
-export const NEW_ENTRY = {
-    ADD_ENTRY: 'ADD_ENTRY',
-};
+export const ENTRY_SAVED = 'ENTRY_SAVED';
 
 
 export const NEW_RATING = {
