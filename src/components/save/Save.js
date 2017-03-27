@@ -45,7 +45,7 @@ export class Save extends Component {
 
     return (
       <div>
-        <RaisedButton label="Save" style={style} type="submit" onClick= {() => {console.log(this.props.data)}}></RaisedButton>
+        <RaisedButton label="Save" style={style} type="submit" onClick={() => {console.log(this.props.data)}}></RaisedButton>
         <RaisedButton label="Share" style={style}></RaisedButton><br/>
       </div>
 

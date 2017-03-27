@@ -5,7 +5,6 @@ import RaisedButton from 'material-ui/RaisedButton';
 import EmojiPage, { Emotions } from '../emoji/EmojiPage';
 import RatingPage from '../rating/RatingPage';
 import MessagePage from '../message/MessagePage';
-import { firebaseConnect, isLoaded, isEmpty, dataToJS } from 'react-redux-firebase';
 import Save from '../save/Save';
 
 const style = {

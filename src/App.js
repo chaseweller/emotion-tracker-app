@@ -1,17 +1,17 @@
 import React, { Component } from 'react';
 import './App.css';
 import AppBar from 'material-ui/AppBar';
-import Drawer from 'material-ui/Drawer';
-import { Link } from 'react-router';
-import RaisedButton from 'material-ui/RaisedButton';
+// import Drawer from 'material-ui/Drawer';
+// import { Link } from 'react-router';
+// import RaisedButton from 'material-ui/RaisedButton';
 import FlatButton from 'material-ui/FlatButton';
 
 
 
 
-const style = {
-    margin: 12,
-}
+// const style = {
+//     margin: 12,
+// }
 
 class App extends Component {
 

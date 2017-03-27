@@ -14,10 +14,10 @@ const style = {
   marginLeft: 30,
 };
 
+
 class Login extends Component {
 
   render() {
-
 
 
     return (
@@ -25,9 +25,9 @@ class Login extends Component {
         <form className="login-form">
           <h1>Login Credentials</h1>
           <Paper  zDepth={2}>
-            <TextField hintText="Username" style={style} underlineShow={false} />
+            <TextField hintText="Email" style={style} underlineShow={false} />
               <Divider />
-            <TextField hintText="Email address" style={style} underlineShow={false} />
+            <TextField hintText="Password" style={style} underlineShow={false} />
               <Divider />
           </Paper>
         </form>
@@ -36,7 +36,7 @@ class Login extends Component {
 }
 
 
-
+// ref.authWithCustomToken(credentials)
 
 
 

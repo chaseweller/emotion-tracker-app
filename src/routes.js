@@ -7,6 +7,7 @@ import EmojiPage from './components/emoji/EmojiPage';
 import MessagePage from './components/message/MessagePage';
 import RatingPage from './components/rating/RatingPage';
 import LoginPage from './components/login/LoginPage';
+import NotFoundPage from './components/home/NotFoundPage';
 
 export default (
   <Route path="/" component={App}>
@@ -16,6 +17,7 @@ export default (
     <Route path="message" component={MessagePage}/>
     <Route path="rating" component={RatingPage}/>
     <Route path="login" component={LoginPage}/>
+      <Route path="*" component={NotFoundPage}/>
 
   </Route>
 );
