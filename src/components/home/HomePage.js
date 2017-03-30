@@ -8,19 +8,24 @@ import MessagePage from '../message/MessagePage';
 import Save from '../save/Save';
 
 const style = {
-  margin: 12,
+  margin: 4,
 };
 
-
 class HomePage extends Component {
+
 
   constructor(props) {
     super(props);
     this.handleEmojiClick = this.handleEmojiClick.bind(this);
     this.handleRatingClick = this.handleRatingClick.bind(this);
     this.handleMessagesEntered = this.handleMessagesEntered.bind(this);
-    this.state = { isClicked: false, isSelected: false, isEntered: false, data: {} };
+    this.handleEntryClick = this.handleEntryClick(this);
+    this.state = { isBegin: false, isClicked: false, isSelected: false, isEntered: false, data: {} };
 
+  }
+
+  handleEntryClick = () => {
+    this.setState({ isBegin: true });
   }
 
   handleEmojiClick(emotion) {
@@ -43,6 +48,7 @@ class HomePage extends Component {
 
   render() {
     const isClicked = this.state.isClicked;
+    const isBegin = this.state.isBegin;
     const isSelected = this.state.isSelected;
     const isEntered = this.state.isEntered;
     console.log(this.state.data);
@@ -59,11 +65,11 @@ class HomePage extends Component {
 
     return (
       <div>
-        <h1>Welcome!</h1>
+        <h1>Welcome back!</h1>
         <article>
-          <Link to="about"><RaisedButton label="About" style={style}></RaisedButton></Link><br/>
-
-          <EmojiPage handler={this.handleEmojiClick}/>
+          <Link to="about"><RaisedButton label="About" style={style}></RaisedButton></Link>
+          <RaisedButton label="New Entry" ></RaisedButton>
+           <EmojiPage handler={this.handleEmojiClick}/>
           {isClicked && <RatingPage handler={this.handleRatingClick}/>}
           {isSelected && <MessagePage handler={this.handleMessagesEntered}/>}
         </article>

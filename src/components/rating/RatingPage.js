@@ -1,14 +1,9 @@
 import React, { Component } from 'react';
-import Slider from 'material-ui/Slider';
-// import { Link } from 'react-router';
-// import RaisedButton from 'material-ui/RaisedButton';
+// import Slider from 'material-ui/Slider';
+import Slider from 'nw-react-slider';
 import './RatingPage.css';
 import './Slider';
-
-
-// const style = {
-//     margin: 12,
-// };
+import './Slider.css';
 
 class RatingPage extends Component {
 
@@ -49,8 +44,6 @@ class RatingPage extends Component {
                     <span>{'Intensity level: '}</span>
                     <span>{this.state.secondSlider}</span>
                 </p>
-                {/*<Link to="/"><RaisedButton label="Home Page" style={style}></RaisedButton></Link>*/}
-                {/*<Link to="message"><RaisedButton label="Continue" style={style}></RaisedButton></Link>*/}
 
             </article>
 
