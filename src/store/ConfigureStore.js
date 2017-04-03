@@ -8,6 +8,12 @@ import thunk from 'redux-thunk';
 const config = {
   userProfile: 'users', // firebase root where user profiles are stored
   enableLogging: false, // enable/disable Firebase's database logging
+  profileFactory: (userData) => {
+    const { user } = userData
+    return {
+      email: user.email
+    }
+  }
 };
 
 

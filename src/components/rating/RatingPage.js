@@ -1,54 +1,54 @@
 import React, { Component } from 'react';
-// import Slider from 'material-ui/Slider';
-import Slider from 'nw-react-slider';
+import Slider from 'material-ui/Slider';
+// import Slider from 'nw-react-slider';
 import './RatingPage.css';
-import './Slider';
 import './Slider.css';
 
 class RatingPage extends Component {
 
-    state = {
-        firstSlider: 0.5,
-        secondSlider: 5,
-    };
+  state = {
+    firstSlider: 0.5,
+    secondSlider: 5,
+  };
 
-    handleFirstSlider = (event, value) => {
-        this.setState({firstSlider: value});
-    };
+  handleFirstSlider = (event, value) => {
+    this.setState({firstSlider: value});
+  };
 
-    handleSecondSlider = (event, value) => {
-        this.setState({secondSlider: value});
-    };
+  handleSecondSlider = (event, value) => {
+    this.setState({secondSlider: value});
+  };
 
-    chosen = () => {
+  chosen = () => {
     console.log(this.state.secondSlider);
-      const d = this.state.secondSlider;
-      {this.props.handler(d)}
-    };
+    const d = this.state.secondSlider;
+    {this.props.handler(d)}
+  };
 
 
-    render () {
-        return (
-            <article>
-                    <h2>On a scale of 1 - 10</h2>
-                    <Slider onClick={this.chosen}
-                            min={1}
-                            max={10}
-                            step={1}
-                            defaultValue={1}
-                            value={this.state.handleFirstSlider}
-                            onChange={this.handleSecondSlider}
+  render () {
+    return (
+      <article>
+        <h2>On a scale of 1 - 10</h2>
+        <Slider onClick={this.chosen}
+                min={1}
+                max={10}
+                step={1}
+                defaultValue={1}
+                value={this.state.handleFirstSlider}
+                onChange={this.handleSecondSlider}
 
-                    />
-                <p>
-                    <span>{'Intensity level: '}</span>
-                    <span>{this.state.secondSlider}</span>
-                </p>
 
-            </article>
+        />
+        <p>
+          <span>{'Intensity level: '}</span>
+          <span>{this.state.secondSlider}</span>
+        </p>
 
-        );
-    }
+      </article>
+
+    );
+  }
 }
 
 export default RatingPage;

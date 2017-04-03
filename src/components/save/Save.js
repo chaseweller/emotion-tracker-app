@@ -27,7 +27,7 @@ export class Save extends Component {
 
     // firebase.push(FIREBASE_COLLECTION, { text: newSubmission.value, done: false })
     entrySaved()
-    newSubmission.value = ''
+    newSubmission.value = {}
   }
 
   render() {

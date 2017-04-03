@@ -1,20 +1,20 @@
-.slider-container-component {
-    position: relative;
-}
-.slider-container-component .slider {
-    -webkit-user-select: none;
-    -moz-user-select: none;
-    -ms-user-select: none;
-    user-select: none;
-    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
-    margin: 6px 0;
-}
+/*.slider-container-component {*/
+    /*position: relative;*/
+/*}*/
+/*.slider-container-component .slider {*/
+    /*-webkit-user-select: none;*/
+    /*-moz-user-select: none;*/
+    /*-ms-user-select: none;*/
+    /*user-select: none;*/
+    /*-webkit-tap-highlight-color: rgba(0, 0, 0, 0);*/
+    /*margin: 6px 0;*/
+/*}*/
 .slider-container-component .slider__track {
     position: relative;
     height: 12px;
     cursor: pointer;
-    background: -webkit-linear-gradient(left, #25ed7f, #fcf411, #e82525);
-    background: linear-gradient(to right, #25ed7f, #fcf411, #e82525);
+    background: -webkit-linear-gradient(left, #25ed7f, #fcf411, #ff0000);
+    background: linear-gradient(to right, #25ed7f, #fcf411, #ff0000);
     border-radius: 6px;
     margin: 6px 12px;
     box-shadow: inset 0 0 0 1px rgba(0, 0, 0, 0.2);

@@ -11,6 +11,7 @@ import SignupPage from './components/login/SignupPage';
 import LandingPage from './components/landing/LandingPage';
 import NotFoundPage from './components/home/NotFoundPage';
 
+
 export default (
   <Route path="/" component={App}>
     <IndexRoute component={LandingPage}/>
@@ -22,7 +23,7 @@ export default (
     <Route path="signup" component={SignupPage}/>
     <Route path="home" component={HomePage}/>
 
-    <Route path="*" component={NotFoundPage}/>
+      <Route path="*" component={NotFoundPage}/>
 
   </Route>
 );
