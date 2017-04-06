@@ -1,10 +1,10 @@
-import { ENTRY_SAVED } from '../actions/types';
+import ActionTypes from '../actions/types';
 
 export default (state = [], action) => {
+
   switch (action.type) {
-    case ENTRY_SAVED:
+    case ActionTypes.ENTRY_SAVED:
       return [ ...state, action.entry ];
-    default:
-      return state;
   }
+  return state;
 }

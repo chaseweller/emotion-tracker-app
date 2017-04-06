@@ -1,33 +1,16 @@
 import 'isomorphic-fetch';
+import ActionTypes from './types';
 
-import { ENTRY_SAVED, NEW_RATING } from './types';
+const entrySaved = (emotion, rating, message) => ({
+  type: ActionTypes.ENTRY_SAVED,
+  emotion,
+  rating,
+  message
+});
 
-
-//const API_URL = ** Needs Firebase hook up here.
-
-export const entrySaved = entry => {
-  return {
-    type: ENTRY_SAVED,
-    entry
-  }
+export const addEntry = (emotion, rating, message) =>
+  (dispatch, getState, getFirebase) => {
+  const firebase = getFirebase();
+  firebase.push('entry', {emotion, rating, message})
+    .then(() => dispatch(entrySaved(emotion, rating, message)))
 };
-
-
-export const addEntry = entry => {
-  return (dispatch, getState, getFirebase) => {
-    const firebase = getFirebase();
-    firebase.push('/entries', entry)
-      .then(() => {
-        dispatch(entrySaved(entry))
-      })
-  }
-};
-
-export const selectRating = rating => {
-
-  return {
-    type: NEW_RATING.ADD_RATING,
-    payload: Promise.resolve(rating)
-  }
-}
-

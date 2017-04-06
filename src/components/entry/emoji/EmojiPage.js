@@ -3,14 +3,6 @@ import './EmojiPage.css';
 import { connect } from 'react-redux';
 import { entrySaved } from '../../actions/newEntry';
 
-// import {Link} from 'react-router';
-// import RaisedButton from 'material-ui/RaisedButton';
-// import { browserHistory } from 'react-router';
-// import { entrySaved } from '../../actions/EmotionSelected';
-
-// const style = {
-//     margin: 12,
-// };
 class EmojiPage extends Component {
 
   selected = (id) => {
@@ -47,13 +39,6 @@ class EmojiPage extends Component {
         { angry }
         { sick }
         { poop }
-
-        {/*<br />*/}
-        {/*<Link to="/"><RaisedButton label="Home Page" style={style}></RaisedButton></Link>*/}
-        {/*<Link to="rating"><RaisedButton label="Continue" style={style}></RaisedButton></Link>*/}
-        <div>
-
-        </div>
       </article>
 
     );
