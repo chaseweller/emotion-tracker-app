@@ -1,4 +1,3 @@
-import 'isomorphic-fetch';
 import ActionTypes from './types';
 
 const entrySaved = (emotion, rating, message) => ({
