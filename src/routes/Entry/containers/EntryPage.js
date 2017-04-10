@@ -1,4 +1,5 @@
 import React, { Component, PropTypes } from 'react';
+import { connect } from 'react-redux'
 import EmojiPage from './emoji/EmojiPage';
 import RatingPage from './rating/RatingPage';
 import MessagePage from './message/MessagePage';
@@ -10,6 +11,16 @@ import { addNewEntry } from '../../../stores/Database';
 const style = {
   margin: 12,
 };
+
+// const populates = () => [
+//   { child: 'entries', root: 'users'}
+// ];
+
+
+// const entryId = () => {
+//   return (Date.now());
+// }
+// const entryId = new Date();
 
 class EntryPage extends Component {
 
@@ -33,6 +44,14 @@ class EntryPage extends Component {
   //   this.setState({ isBegin: true });
   // }
 
+
+
+  saveEntry = () => {
+    console.log(this.props.profile);
+
+    console.log(this.props.firebase.ref(`/users/${this.profile['$key']}/entries`).push(this.state.data));
+  };
+
   handleEmojiClick(emotion) {
     const data = this.state.data;
     data.emotion = emotion;
@@ -52,17 +71,19 @@ class EntryPage extends Component {
   }
 
   render() {
-    console.log(firebaseConnect);
+    // console.log(firebaseConnect);
 
-    const saveEntry = ({ firebaseConnect: { push } }) => (
-      push('users', this.state.data)
-    );
+    // const saveEntry = () => (
+    //   this.firebase.push(this.state.data);
+    //
+    //   // push('users', this.state.data)
+    // );
 
     const isClicked = this.state.isClicked;
     // const isBegin = this.state.isBegin;
     const isSelected = this.state.isSelected;
     const isEntered = this.state.isEntered;
-    console.log(this.state.data);
+    // console.log(this.state.data);
 
     return (
       <div>
@@ -72,7 +93,7 @@ class EntryPage extends Component {
           {isSelected && <MessagePage handler={this.handleMessagesEntered}/>}
         </article>
         <article>
-          <div><RaisedButton onClick={saveEntry}>Save</RaisedButton></div>
+          <div><RaisedButton onClick={this.saveEntry}>Save</RaisedButton></div>
 
         </article>
 
@@ -82,32 +103,38 @@ class EntryPage extends Component {
 }
 
 
-const mapStateToProps = state => {
-
-  return {}
-};
-
-const mapDispatchToProps = (dispatch) => {
-  return {
-    newEntry: (data) => {
-      return dispatch(addEntry(data));
-    }
-  }
-};
-
-
-export default firebaseConnect(
-  mapStateToProps,
-  mapDispatchToProps,
-)(EntryPage);
-
-
+// const mapStateToProps = state => {
+//
+//   return {}
+// };
+//
+// const mapDispatchToProps = (dispatch) => {
+//   return {
+//     newEntry: (data) => {
+//       return dispatch(addEntry(data));
+//     }
+//   }
+// };
+//
 //
 // export default firebaseConnect(
+//   mapStateToProps,
+//   mapDispatchToProps,
+// )(EntryPage);
+
+// const wrapped = firebaseConnect([
+//   '/entries'
+// ])(EntryPage);
+//
+// export default connect(
 //   ({ firebase }) => ({
-//     save: dataToJS(firebase, 'save')
+//     entries: dataToJS(firebase, 'entries')
+//     // firebase
+//     // save: dataToJS(firebase, 'save')
 //   })
-// )(Save);
+// )(wrapped);
+
+export default firebaseConnect()(EntryPage);
 
 
 

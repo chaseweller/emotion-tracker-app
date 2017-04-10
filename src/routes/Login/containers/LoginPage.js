@@ -36,7 +36,6 @@ class Login extends Component {
   }
 }
 
-
 export default connect(
   ({ firebase }) => ({
     authError: pathToJS(firebase, 'authError'),

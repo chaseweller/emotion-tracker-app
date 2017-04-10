@@ -12,6 +12,7 @@ export default () => (
         <h1>How it works</h1>
         <ul>
           Select a time that the notification will come to you<br/>
+          Also select a type of writing that would like<br/>
           <h2>1. Selected how you felt today</h2><br/>
           <img src="images/EmojiBar.png" frameBorder="1"/><br/>
           <h2>2. Select a level at which you felt that emotion</h2>

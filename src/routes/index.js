@@ -1,3 +1,15 @@
-/**
- * Created by chaseweller on 4/6/17.
- */
+import NotFound from './NotFound';
+import Home from './Home';
+import Landing from './Landing';
+import About from './About';
+import Login from './Login';
+import Entry from './Entry';
+
+export default {
+  NotFound,
+  Landing,
+  Home,
+  About,
+  Login,
+  Entry
+};
