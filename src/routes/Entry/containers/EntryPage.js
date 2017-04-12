@@ -1,26 +1,13 @@
 import React, { Component, PropTypes } from 'react';
-import { connect } from 'react-redux'
+// import { connect } from 'react-redux'
 import EmojiPage from './emoji/EmojiPage';
 import RatingPage from './rating/RatingPage';
 import MessagePage from './message/MessagePage';
-import { entrySaved, addEntry } from '../../../actions/newEntry';
-import { firebaseConnect, dataToJS } from 'react-redux-firebase';
+import { firebaseConnect } from 'react-redux-firebase'; //datatoJS
 import RaisedButton from 'material-ui/RaisedButton';
-import { addNewEntry } from '../../../stores/Database';
+import Dialog from 'material-ui/Dialog';
+import FlatButton from 'material-ui/FlatButton';
 
-const style = {
-  margin: 12,
-};
-
-// const populates = () => [
-//   { child: 'entries', root: 'users'}
-// ];
-
-
-// const entryId = () => {
-//   return (Date.now());
-// }
-// const entryId = new Date();
 
 class EntryPage extends Component {
 
@@ -47,10 +34,12 @@ class EntryPage extends Component {
 
 
   saveEntry = () => {
-    console.log(this.props.profile);
-
-    console.log(this.props.firebase.ref(`/users/${this.profile['$key']}/entries`).push(this.state.data));
+    // console.log();
+    const entryId = Date();
+    this.props.firebase.ref(`users/entries`).push(this.state.data);
   };
+
+
 
   handleEmojiClick(emotion) {
     const data = this.state.data;
@@ -69,15 +58,36 @@ class EntryPage extends Component {
     data.messages = messages;
     this.setState({ isEntered: true, data: data })
   }
+  // handleEntry() {
+  //   const entry = this.
+  // }
+  state = {
+    open: false,
+  };
+
+  handleOpen = () => {
+    this.setState({open: true});
+  };
+
+  handleClose = () => {
+  this.setState({open: false});
+};
 
   render() {
-    // console.log(firebaseConnect);
 
-    // const saveEntry = () => (
-    //   this.firebase.push(this.state.data);
-    //
-    //   // push('users', this.state.data)
-    // );
+    const actions = [
+      <FlatButton
+        label='Cancel'
+        primary={true}
+        onTouchTap={this.handleClose} />,
+      <FlatButton
+        label="Submit"
+        primary={true}
+        KeyboardFocus={true}
+        onMouseEnter={this.saveEntry}
+        onTouchTap={this.handleClose} />
+
+    ];
 
     const isClicked = this.state.isClicked;
     // const isBegin = this.state.isBegin;
@@ -93,7 +103,18 @@ class EntryPage extends Component {
           {isSelected && <MessagePage handler={this.handleMessagesEntered}/>}
         </article>
         <article>
-          <div><RaisedButton onClick={this.saveEntry}>Save</RaisedButton></div>
+          {isSelected &&
+          <div>
+            <RaisedButton label="Save" onTouchTap={this.handleOpen}/>
+            <Dialog
+              title="Your entry has been saved"
+              actions={actions}
+              modal={false}
+              open={this.state.open}
+              onRequestClose={this.handleClose}
+              >
+            </Dialog>
+          </div>}
 
         </article>
 

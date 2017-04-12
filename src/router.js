@@ -42,6 +42,8 @@ export default class extends Component {
               <Route exact path="/Login" component={Routes.Login._default}/>
               <Route exact path="/Home" component={Routes.Home._default}/>
               <Route exact path="/Entry" component={Routes.Entry._default}/>
+              <Route exact path="/PastEntries" component={Routes.PastEntries._default}/>
+
               <Route component={Routes.NotFound._default} />
             </Switch>
           </article>

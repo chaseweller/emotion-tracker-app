@@ -11,7 +11,7 @@ class EmojiPage extends Component {
   render() {
 
     const happy =
-      <img src="images/Happy.png" alt="Smiley face" onClick={ id => this.selected('happy')}/>;
+     <img src="images/Happy.png" alt="Smiley face" onClick={ id => this.selected('happy')} />;
     const neutral =
       <img src="images/Neutral.png" alt="Neutral face" onClick={ id => this.selected('neutral')}/>;
     const sad =

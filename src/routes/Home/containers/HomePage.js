@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import './HomePage.css';
 import { Link } from 'react-router-dom';
 import RaisedButton from 'material-ui/RaisedButton';
+import { firebaseConnect } from 'react-redux-firebase';
 
 const style = {
   margin: 4,
@@ -18,10 +19,12 @@ class HomePage extends Component {
 
     return (
       <div>
-        <h1>Welcome back!</h1>
+        <h1>Welcome back </h1>
+
         <article>
           <Link to="about"><RaisedButton label="About" style={style}></RaisedButton></Link>
           <Link to="entry"><RaisedButton label="New Entry" onClick={e => this.selected()}></RaisedButton></Link>
+          <Link to="pastentries"><RaisedButton label="Past Entries" style={style}></RaisedButton></Link>
 
         </article>
 

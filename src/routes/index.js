@@ -4,6 +4,7 @@ import Landing from './Landing';
 import About from './About';
 import Login from './Login';
 import Entry from './Entry';
+import PastEntries from './PastEntries';
 
 export default {
   NotFound,
@@ -11,5 +12,6 @@ export default {
   Home,
   About,
   Login,
-  Entry
+  Entry,
+  PastEntries
 };

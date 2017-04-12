@@ -1,26 +1,26 @@
-import React, { Component } from 'react';
-import { firebaseConnect, dataToJS } from 'react-redux-firebase';
-import { connect } from 'react-redux';
-
-let userId = '';
-
-const addNewUser = (userId, name, email) => {
-  firebaseConnect.ref('users/' + userId).set({
-    username: name,
-    email: email
-  })
-};
-
-export const addNewEntry = () => {
-
-  const entryId = Date.now();
-
-  firebaseConnect.ref('users/' + userId + '/entries/' + entryId)
-};
-
-export default connect(({ firebase }) => ({
-  newEntry: dataToJS(firebase, '')
-}))(addNewEntry);
+// import React, { Component } from 'react';
+// import { firebaseConnect, dataToJS } from 'react-redux-firebase';
+// import { connect } from 'react-redux';
+//
+// let userId = '';
+//
+// const addNewUser = (userId, name, email) => {
+//   firebaseConnect.ref('users/' + userId).set({
+//     username: name,
+//     email: email
+//   })
+// };
+//
+// export const addNewEntry = () => {
+//
+//   const entryId = Date.now();
+//
+//   firebaseConnect.ref('users/' + userId + '/entries/' + entryId)
+// };
+//
+// export default connect(({ firebase }) => ({
+//   newEntry: dataToJS(firebase, '')
+// }))(addNewEntry);
 
 
 // const preObject = document.getElementById('object');
