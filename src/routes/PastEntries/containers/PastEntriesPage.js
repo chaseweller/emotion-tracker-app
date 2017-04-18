@@ -1,7 +1,10 @@
 import React, { Component } from 'react';
 import { Table, TableBody, TableHeader, TableHeaderColumn, TableRow, TableRowColumn } from 'material-ui/Table';
-// import RaisedButton from 'material-ui/RaisedButton';
 import base from '../../../config';
+
+const padding1 = {
+  padding: 5
+}
 
 class PastEntries extends Component {
 
@@ -18,19 +21,22 @@ class PastEntries extends Component {
       asArray: true
     });
   }
-  componentWillUnmount(){
-    base.removeBinding(this.ref);
-  }
+
+  // componentWillUnmount(){
+  //   base.removeBinding(this.ref);
+  // }
+
   handleEditItem(){
     this.setState({
       entry: this.state.entry
     });
   }
+
   handleRemoveEntry(index){
     const newEntryList = this.state.entries;
     newEntryList.splice(index, 1);
     this.setState({
-      entry: newEntryList
+      entries: newEntryList
     })
   }
 
@@ -38,11 +44,10 @@ class PastEntries extends Component {
 
     return (
     <h1>Past Entries
-
       <div>
         <Table>
-          <TableHeader >
-            <TableRow >
+          <TableHeader>
+            <TableRow>
               <TableHeaderColumn> Entry Date </TableHeaderColumn>
               <TableHeaderColumn> Emotion </TableHeaderColumn>
               <TableHeaderColumn> Rating </TableHeaderColumn>
@@ -60,13 +65,11 @@ class PastEntries extends Component {
                   <TableRowColumn>{entry.rating}</TableRowColumn>
                   <TableRowColumn>{entry.messages}</TableRowColumn>
                   <TableRowColumn><i className="material-icons">mode_edit</i></TableRowColumn>
-                  <TableRowColumn ><i className="material-icons" onClick={this.handleRemoveEntry.bind(this)}>delete</i></TableRowColumn>
+                  <TableRowColumn><i className="material-icons" onClick={this.handleRemoveEntry.bind(this)}>delete</i></TableRowColumn>
 
                 </TableRow >
               ))
             }
-
-            {/*{this.state.loading === true ? <h3> LOADING ... </h3> : <List items={this.state.list} remove={this.handleRemoveItem.bind(this)}/>}*/}
           </TableBody>
         </Table>
       </div>

@@ -40,7 +40,7 @@ class EntryPage extends Component {
     const currentDate = date + ' | ' + time;
 
     const stateData = this.state.data;
-    stateData.date = JSON.stringify(currentDate);
+    stateData.date = currentDate;
     this.setState({ data: stateData });
     this.props.history.push('./pastentries');
 

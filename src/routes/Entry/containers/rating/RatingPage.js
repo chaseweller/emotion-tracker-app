@@ -20,11 +20,9 @@ class RatingPage extends Component {
   };
 
   chosen = () => {
-    // console.log(this.state.secondSlider);
     const d = this.state.secondSlider;
       {this.props.handler(d)}
   };
-
 
   render () {
 
@@ -39,13 +37,11 @@ class RatingPage extends Component {
           defaultValue={1}
           value={this.state.handleFirstSlider}
           onChange={this.handleSecondSlider}
-
         />
         <p>
           <span>{'Intensity level: '}</span>
           <span>{this.state.secondSlider}</span>
         </p>
-
       </article>
 
     );

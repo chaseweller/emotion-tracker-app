@@ -1,7 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import RaisedButton from 'material-ui/RaisedButton';
-import './AboutPage.css';
 
 const style = {
   margin: 12,
