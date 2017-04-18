@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import './HomePage.css';
 import { Link } from 'react-router-dom';
 import RaisedButton from 'material-ui/RaisedButton';
-import { firebaseConnect } from 'react-redux-firebase';
+// import Login from '../../Login/containers/LoginPage';
 
 const style = {
   margin: 4,

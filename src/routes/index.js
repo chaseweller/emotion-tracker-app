@@ -5,6 +5,7 @@ import About from './About';
 import Login from './Login';
 import Entry from './Entry';
 import PastEntries from './PastEntries';
+import Feedback from './Feedback';
 
 export default {
   NotFound,
@@ -13,5 +14,6 @@ export default {
   About,
   Login,
   Entry,
-  PastEntries
+  PastEntries,
+  Feedback
 };

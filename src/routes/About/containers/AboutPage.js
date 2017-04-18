@@ -25,8 +25,9 @@ export default () => (
         <ul>
           Review past entries with an interactive chart/calendar/query
         </ul>
-        <Link to="/"><RaisedButton label="Home Page" style={style}></RaisedButton></Link><br/>
         <Link to="login"><RaisedButton label="Register" style={style}></RaisedButton></Link>
+        <Link to="/"><RaisedButton label="Back" style={style}></RaisedButton></Link><br/>
+
       </div>
 
     );

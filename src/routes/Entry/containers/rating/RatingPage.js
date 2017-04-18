@@ -7,7 +7,7 @@ import './Slider.css';
 class RatingPage extends Component {
 
   state = {
-    firstSlider: 0.5,
+    firstSlider: 5,
     secondSlider: 5,
   };
 
@@ -15,7 +15,7 @@ class RatingPage extends Component {
     this.setState({firstSlider: value});
   };
 
-  handleSecondSlider = (event, value) => {
+  handleSecondSlider = (e, value) => {
     this.setState({secondSlider: value});
   };
 
@@ -31,14 +31,14 @@ class RatingPage extends Component {
     return (
       <article>
         <h2>On a scale of 1 - 10</h2>
-        <Slider onClick={this.chosen}
-                min={1}
-                max={10}
-                step={1}
-                defaultValue={1}
-                value={this.state.handleFirstSlider}
-                onChange={this.handleSecondSlider}
-
+        <Slider
+          onClick={this.chosen}
+          min={1}
+          max={10}
+          step={1}
+          defaultValue={1}
+          value={this.state.handleFirstSlider}
+          onChange={this.handleSecondSlider}
 
         />
         <p>
@@ -53,3 +53,4 @@ class RatingPage extends Component {
 }
 
 export default RatingPage;
+

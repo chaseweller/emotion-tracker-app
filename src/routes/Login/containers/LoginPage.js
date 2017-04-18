@@ -1,40 +1,50 @@
 import React, { Component } from 'react';
-import { connect } from 'react-redux';
-import { firebaseConnect, pathToJS } from 'react-redux-firebase';
-// import { browserHistory } from 'react-router-dom';
+import base from '../../../config';
+// import {authWithOAuthPopup} from 're-base';
+// import ReactDOM from 'react-dom';
+
 
 import './LoginPage.css';
 
 
-class Login extends Component {
 
-  handleLogin = (provider = 'google') => {
-    console.log(firebaseConnect.displayName);
-    this.props.firebase.login({ provider, type: 'popup' })
-      .then(result => {
-        this.props.history.push('/Home');
+  class Login extends Component {
 
-        // if(this.props.auth) {
-        // }
-      });
+    // this.props.firebase.auth().authStateChanged((user) => {
 
+  //
+  // handleLogin = (provider = 'google') => {
+  //   this.props.base.login({ provider, type: 'popup' })
+  //     .then(result => {
+  //       this.props.history.push('/Home');
+  //
+  //     });
+  //
+  // };
+
+  authHandler = (error, user) => {
+    if(error) console.error(error);
+    this.props.history.push('./Home');
+    localStorage.setItem('user', base.auth().currentUser.uid);
+    localStorage.getItem('user');
   };
-  
-  
-  
-  
+
+
+
+
 
   render() {
+    console.log(base);
 
     return (
       <article>
         <h1> Please sign in with:</h1>
 
-        <div onClick={e => this.handleLogin('google')}>
+        <div onClick={e => base.authWithOAuthPopup('google', this.authHandler)}>
           <img src='images/GoogleSignIn.png' alt="google"/>
         </div>
         {/*<div onClick={e => this.handleLogin('facebook')}>*/}
-          {/*<img src='images/FacebookLogin.png' alt="facebook"/>*/}
+        {/*<img src='images/FacebookLogin.png' alt="facebook"/>*/}
         {/*</div>*/}
       </article>
 
@@ -43,13 +53,4 @@ class Login extends Component {
 }
 
 
-export default connect(
-  // ({ firebase }) => ({
-  //   // authError: pathToJS(firebase, 'authError'),
-  //   // auth: pathToJS(firebase, 'auth'),
-  //   // profile: pathToJS(firebase, 'profile')
-  // })
-)(firebaseConnect([])(Login))
-
-
-
+export default Login;

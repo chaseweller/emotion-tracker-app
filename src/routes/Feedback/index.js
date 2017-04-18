@@ -1,3 +1,5 @@
-/**
- * Created by chaseweller on 4/17/17.
- */
+import _default from './containers/Feedback';
+
+export default {
+  _default
+};
