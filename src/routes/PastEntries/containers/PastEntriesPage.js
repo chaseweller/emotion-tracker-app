@@ -2,10 +2,6 @@ import React, { Component } from 'react';
 import { Table, TableBody, TableHeader, TableHeaderColumn, TableRow, TableRowColumn } from 'material-ui/Table';
 import base from '../../../config';
 
-const padding1 = {
-  padding: 5
-}
-
 class PastEntries extends Component {
 
   constructor(props) {
@@ -60,7 +56,7 @@ class PastEntries extends Component {
             {
               this.state.entries.map(entry => (
                 <TableRow key={entry.key}>
-                  <TableRowColumn>{entry.date} </TableRowColumn>
+                  <TableRowColumn style={{ display: 'block', padding: '50px !important'}}>{entry.date} </TableRowColumn>
                   <TableRowColumn>{entry.emotion}</TableRowColumn>
                   <TableRowColumn>{entry.rating}</TableRowColumn>
                   <TableRowColumn>{entry.messages}</TableRowColumn>
