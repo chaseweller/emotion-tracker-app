@@ -30,6 +30,7 @@ class PastEntries extends Component {
 
   handleRemoveEntry(index){
     const newEntryList = this.state.entries;
+    // console.log(this.state.entries);
     newEntryList.splice(index, 1);
     this.setState({
       entries: newEntryList
@@ -48,7 +49,7 @@ class PastEntries extends Component {
               <TableHeaderColumn> Emotion </TableHeaderColumn>
               <TableHeaderColumn> Rating </TableHeaderColumn>
               <TableHeaderColumn> Message </TableHeaderColumn>
-              <TableHeaderColumn> Edit </TableHeaderColumn>
+              {/*<TableHeaderColumn> Edit </TableHeaderColumn>*/}
               <TableHeaderColumn> Delete </TableHeaderColumn>
             </TableRow>
           </TableHeader>
@@ -56,13 +57,12 @@ class PastEntries extends Component {
             {
               this.state.entries.map(entry => (
                 <TableRow key={entry.key}>
-                  <TableRowColumn style={{ display: 'block', padding: '50px !important'}}>{entry.date} </TableRowColumn>
+                  <TableRowColumn>{entry.date} </TableRowColumn>
                   <TableRowColumn>{entry.emotion}</TableRowColumn>
                   <TableRowColumn>{entry.rating}</TableRowColumn>
                   <TableRowColumn>{entry.messages}</TableRowColumn>
-                  <TableRowColumn><i className="material-icons">mode_edit</i></TableRowColumn>
+                  {/*<TableRowColumn><i className="material-icons">mode_edit</i></TableRowColumn>*/}
                   <TableRowColumn><i className="material-icons" onClick={this.handleRemoveEntry.bind(this)}>delete</i></TableRowColumn>
-
                 </TableRow >
               ))
             }
@@ -76,3 +76,5 @@ class PastEntries extends Component {
 }
 
 export default PastEntries;
+
+// style={{ display: 'block', padding: '50px !important'}}

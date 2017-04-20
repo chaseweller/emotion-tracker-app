@@ -63,7 +63,7 @@ class EntryPage extends Component {
           <EmojiPage handler={this.handleEmojiClick}/>
           {isClicked && <RatingPage handler={this.handleRatingClick}/>}
           {isSelected && <MessagePage handler={this.handleMessagesEntered}/>}
-          {isSelected && <div><RaisedButton label="Save" onTouchTap={this.saveEntry} onTouchStart={alert("Submitted")}/></div>}
+          {isSelected && <div><RaisedButton label="Save" onTouchTap={this.saveEntry}/></div>}
         </article>
       </div>
     )

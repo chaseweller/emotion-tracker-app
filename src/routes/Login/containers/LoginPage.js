@@ -17,7 +17,7 @@ class Login extends Component {
         <h1> Please sign in with:</h1>
         <div onClick={e => base.authWithOAuthPopup('google', this.authHandler)}>
           <img src='images/GoogleSignIn.png' alt="google"/>
-          <button onClick={e => base.signOut()}>Sign Out</button>
+          {/*<button onClick={e => base.signOut()}>Sign Out</button>*/}
 
         </div>
         {/*<div onClick={e => this.handleLogin('facebook')}>*/}

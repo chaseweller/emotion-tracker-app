@@ -7,21 +7,21 @@ import getMuiTheme from 'material-ui/styles/getMuiTheme';
 import Router from './router';
 import './styles/global.css';
 
-const muiTheme = getMuiTheme({
-  palette: {
-    background: deepOrange500
-  },
-
-  tableRowColumn: {
-    height: 48,
-    spacing: 48,
-  }
-});
+// const muiTheme = getMuiTheme({
+//   palette: {
+//     background: deepOrange500
+//   },
+//
+//   tableRowColumn: {
+//     height: 48,
+//     spacing: 48,
+//   }
+// });
 
 injectTapEventPlugin();
 
 ReactDOM.render(
-  <MuiThemeProvider muiTheme={muiTheme}>
+  <MuiThemeProvider>
     <Router />
   </MuiThemeProvider>,
   document.getElementById('root')
